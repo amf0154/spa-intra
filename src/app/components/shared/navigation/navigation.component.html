@@ -1,0 +1,69 @@
+<section class="menu">
+<div class="menu__logo">
+    <img src="../../../../assets/images/logo.png" alt="" class="menu__image-logo">
+</div>
+<div class="menu__navigation">
+    <ul class="menu__items">
+        <li [ngClass]="((active_item | async) === 'base') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+            <div class="menu__element">
+                <div class="menu__icon">
+                    <img src="../../../../assets/images/navigation/navi_01.png" alt="" class="menu__image-element">
+                </div>
+                <div class="menu__description">
+                    База знаний
+                </div>
+            </div>
+        </li>
+        <li routerLink="/applications" [ngClass]="((active_item | async) === 'applications') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+            <div class="menu__element">
+                <div class="menu__icon">
+                    <img src="../../../../assets/images/navigation/navi_02.png"  alt="" class="menu__image-element">
+                </div>
+                <div class="menu__description">
+                    Заявки
+                </div>
+            </div>
+        </li>
+        <li [ngClass]="((active_item | async) === 'staff') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+            <div class="menu__element">
+                <div class="menu__icon">
+                    <img src="../../../../assets/images/navigation/navi_03.png" alt="" class="menu__image-element">
+                </div>
+                <div class="menu__description">
+                    Сотрудники
+                </div>
+            </div>
+        </li>
+        <li [ngClass]="((active_item | async) === 'clients') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+            <div class="menu__element">
+                <div class="menu__icon">
+                    <img src="../../../../assets/images/navigation/navi_04.png" alt="" class="menu__image-element">
+                </div>
+                <div class="menu__description">
+                    Клиенты
+                </div>
+            </div>
+        </li>
+        <li [ngClass]="((active_item | async) === 'assets') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+            <div class="menu__element">
+                <div class="menu__icon">
+                    <img src="../../../../assets/images/navigation/navi_05.png" alt="" class="menu__image-element">
+                </div>
+                <div class="menu__description">
+                    Активы
+                </div>
+            </div>
+        </li>
+        <li [ngClass]="((active_item | async) === 'settings') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+            <div class="menu__element">
+                <div class="menu__icon">
+                    <img src="../../../../assets/images/navigation/navi_06.png" alt="" class="menu__image-element">
+                </div>
+                <div class="menu__description">
+                    Настройки
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</section>

@@ -1,0 +1,49 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 96px;
+    height: 1200px;
+    background-color: #002137;
+    &__logo{
+        margin-top: 16px;
+        margin-left: 26px;
+    }
+    &__image-logo{
+        width: 52px;
+        height: 44px;
+    }
+    &__navigation{
+        .menu__items{
+            padding: 0;
+            &__item{
+            //    margin-top: 16px;
+                width: 96px;
+                height: 71px;
+                list-style-type: none;
+                &-active , &:hover{
+                    background-color: #002C49;
+                }
+            }
+            
+        }
+    }
+    &__element{
+        margin-left: 14px;
+        padding-top: 11px;
+        width: 68px;
+        height: 43px;
+        .menu__description{
+            margin-top: 7px;
+            font-family: "Myriad";
+            font-size: 12px;
+            opacity: 0.6;
+            text-align: center;
+        }
+    }
+    &__image-element{
+        filter: invert(1);
+        margin-left: 23px;
+    }
+
+}

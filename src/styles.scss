@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    max-width: 1601px;
+    min-height: 1200px;
+    height: 100%;
+    width: 100%;
+	margin: auto;
+    padding: 0px;
+    border: 1px black solid;
+}
+
+@font-face {
+    font-family: "Myriad";
+    src: url('./assets/styles/MyriadPro.otf');
+}
