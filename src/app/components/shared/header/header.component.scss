@@ -2,4 +2,26 @@
     height: 66px;
     width: 1505px;
     background-color: #D1E0ED;
+    .header__search-params{
+        margin: 14px 15px;
+        width: 711px;
+        height: 45px;
+        position: absolute;
+        .header__search{
+            width: 681px;
+            height: 41px;
+            border-radius: 25px;
+            border: 1px #008CF0 solid;
+            &:focus{
+                outline: none;
+            }
+        }
+        .header__button{
+            left: -34px;
+            top: 6px;
+            position: relative;
+            width: 19px;
+            height: 19px;
+        }
+    }
 }
