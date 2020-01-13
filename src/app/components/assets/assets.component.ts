@@ -3,18 +3,17 @@ import { NavigationService } from '@core/services/navigation.service';
 import { Navigation } from '@core/enums/navigation.enum';
 
 @Component({
-  selector: 'app-applications',
-  templateUrl: './applications.component.html',
-  styleUrls: ['./applications.component.scss']
+  selector: 'app-assets',
+  templateUrl: './assets.component.html',
+  styleUrls: ['./assets.component.scss']
 })
-export class ApplicationsComponent implements OnInit {
+export class AssetsComponent implements OnInit {
 
   constructor(private navigationService: NavigationService) {
-    this.navigationService.setNavigation(Navigation.applications);
+    this.navigationService.setNavigation(Navigation.assets);
   }
 
   ngOnInit() {
-    
   }
 
 }

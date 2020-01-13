@@ -21,8 +21,10 @@
                 width: 96px;
                 height: 71px;
                 list-style-type: none;
-                &-active , &:hover{
+                &-active , &:hover, &:focus{
                     background-color: #002C49;
+                    cursor: pointer;
+                    outline: none;
                 }
             }
             

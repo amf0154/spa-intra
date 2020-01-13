@@ -1,0 +1,10 @@
+.error-block{
+    margin: 40px;
+    .error-message{
+        padding: 10px 20px;
+        font-size: 30px;
+        font-weight: bold;
+        color: red;
+        border: 1px dotted red;
+    }
+}

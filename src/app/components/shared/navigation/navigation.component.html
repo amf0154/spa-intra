@@ -4,7 +4,7 @@
 </div>
 <div class="menu__navigation">
     <ul class="menu__items">
-        <li [ngClass]="((active_item | async) === 'base') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+        <li routerLink="/base" [ngClass]="((active_item | async) === 'base') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
             <div class="menu__element">
                 <div class="menu__icon">
                     <img src="../../../../assets/images/navigation/navi_01.png" alt="" class="menu__image-element">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </li>
-        <li [ngClass]="((active_item | async) === 'staff') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+        <li routerLink="/staff" [ngClass]="((active_item | async) === 'staff') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
             <div class="menu__element">
                 <div class="menu__icon">
                     <img src="../../../../assets/images/navigation/navi_03.png" alt="" class="menu__image-element">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </li>
-        <li [ngClass]="((active_item | async) === 'clients') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+        <li routerLink="/clients" [ngClass]="((active_item | async) === 'clients') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
             <div class="menu__element">
                 <div class="menu__icon">
                     <img src="../../../../assets/images/navigation/navi_04.png" alt="" class="menu__image-element">
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </li>
-        <li [ngClass]="((active_item | async) === 'assets') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+        <li routerLink="/assets" [ngClass]="((active_item | async) === 'assets') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
             <div class="menu__element">
                 <div class="menu__icon">
                     <img src="../../../../assets/images/navigation/navi_05.png" alt="" class="menu__image-element">
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </li>
-        <li [ngClass]="((active_item | async) === 'settings') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
+        <li routerLink="/settings" [ngClass]="((active_item | async) === 'settings') ? 'menu__items__item menu__items__item-active' : 'menu__items__item' ">
             <div class="menu__element">
                 <div class="menu__icon">
                     <img src="../../../../assets/images/navigation/navi_06.png" alt="" class="menu__image-element">
