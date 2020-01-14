@@ -1,0 +1,26 @@
+@mixin action__button($width, $height){
+    width: $width;
+    height: $height;
+    border-radius: 45px;
+    color: white;
+    background-color: #008CF0;
+    vertical-align: middle; 
+    display: table-cell;
+    text-align: center;
+    font-family: "Myriad";
+    font-weight: lighter;
+    font-size: 16pt;
+    color: rgba(255, 255, 255, 255);
+    .applications__text{
+        margin: 0;
+    }
+}
+
+@mixin application_status($color){
+    background-color: $color; 
+    border-radius: 25px; 
+    text-align: center; 
+    font-size: 16px; 
+    padding: 5px 15px; 
+    color: white;
+}

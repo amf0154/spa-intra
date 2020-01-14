@@ -1,1 +1,55 @@
-<p>applications works!</p>
+<section class="applications">
+    <div class="applications__list">
+        <div class="applications__button">
+            <p class="applications__text">Создать заявку</p>
+        </div>
+        <div class="applications__container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table__cell-id">ID</th>
+                        <th class="table__cell-description">Название</th>
+                        <th class="table__cell-status">Статус</th>
+                        <th class="table__cell-performer">Исполнитель</th>
+                    </tr>
+                </thead>
+                <div class="table__line"></div>
+                <tbody>
+                    <tr>
+                       <td class="table__cell-id">12345</td>
+                       <td class="table__cell-description">Не работает кнопка</td>
+                       <td class="table__cell-status">
+                           <span class="application__status application__status__open">открыта</span>
+                       </td>
+                       <td class="table__cell-performer">Александр Иванов</td>
+                    </tr>
+                    <tr>
+                        <td class="table__cell-id">45545</td>
+                        <td class="table__cell-description">Принтер летит к черту</td>
+                        <td class="table__cell-status">
+                            <span class="application__status application__status__done">выполнена</span>
+                        </td>
+                        <td class="table__cell-performer">Сергей Петрович</td>
+                    </tr>
+                    <tr>
+                        <td class="table__cell-id">12345</td>
+                        <td class="table__cell-description">Не работает кнопка</td>
+                        <td class="table__cell-status">В работе</td>
+                        <td class="table__cell-performer">Александр Иванов</td>
+                     </tr>
+                     <tr>
+                         <td class="table__cell-id">45545</td>
+                         <td class="table__cell-description">Принтер летит к черту</td>
+                         <td class="table__cell-status">Выполнено</td>
+                         <td class="table__cell-performer">Сергей Петрович</td>
+                     </tr>                    
+                </tbody>                                                                                                                                                                                                      
+              </table>
+
+              
+        </div>
+    </div>
+    <div *ngIf="false" class="applications__form">
+        <div class="applications__header-description"></div>
+    </div>
+</section>

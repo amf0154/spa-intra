@@ -1,0 +1,154 @@
+@import '../../../../assets/scss/mixins.scss';
+
+section.applications{
+    display: flex;
+    flex-direction: row;
+    height: 1116px;
+    position: absolute;
+    .applications__list{
+        z-index: 1;
+        width: 1505px;
+        height: inherit;
+        .applications__button{
+            position: relative;
+            left: 260px;
+            top: 23px;
+            @include action__button(181px, 41px);
+        }
+        .applications__container{
+            width: 1505px;
+            height: inherit;
+            overflow: scroll;
+            position: relative;
+            top: 85px;
+        }
+    }
+    .applications__form{
+        position: absolute;
+        right: 0px;
+        z-index: 2;
+        width: 976px;
+        height: inherit;
+        background-color: #ECF3F7;
+        .applications__header-description{
+            height: 61px;
+            width: inherit;
+            background-color: #1A4876;
+        }
+    }
+    
+    .table{
+        th{
+            border-right: 1px #E2E7EA solid;
+            border-bottom: 1px #E2E7EA solid;
+            padding-bottom: 10px;
+            height: 25px;
+            font-size: 16pt;
+            font-family: "Myriad";
+            font-weight: 100;
+            color: rgba(64, 65, 71, 255);
+            &.table__cell-id{
+               width: 116px; 
+            }
+            &.table__cell-description{
+                width: 413px; 
+                text-align: left;
+                padding-left: 15px;
+            }
+            &.table__cell-status{
+                width: 125px; 
+                text-align: left;
+                padding-left: 15px;
+            }
+            &.table__cell-performer{
+                width: 774px;
+                text-align: left;
+                padding-left: 30px; 
+                border-right: none;
+
+            }   
+        }
+        .table__line{
+           // margin-top: 11px;
+        }
+        td{
+            height: 51px;
+            font-size: 16pt;
+            font-family: "Myriad";
+            font-weight: lighter;
+            color: rgba(82, 84, 96, 255);
+            border-bottom: 1px #E2E7EA solid;
+            &.table__cell-id{
+               width: 116px; 
+               text-align: center;
+               border-left: 5px green solid;
+            }
+            &.table__cell-description{
+                width: 413px; 
+                text-align: left;
+                padding-left: 15px;
+            }
+            &.table__cell-status{
+                width: 125px; 
+                text-align: left;
+                padding-left: 15px;
+            }
+            &.table__cell-performer{
+                width: 774px;
+                text-align: left;
+                padding-left: 5px; 
+                border-right: none;
+                text-align: left;
+            }             
+        } 
+        /*
+        .table__cell-id{
+            height: 51px;
+            width: 114px;
+            border-left: 5px #F75394 solid;
+            &__header{
+                border-right: 1px #E2E7EA solid;
+                width: 114px;
+                height: 25px;
+                margin-bottom: 9px;
+            }
+        }
+        .table__cell-description{
+            height: 51px;
+            width: 414px;
+            &__header{
+                height: 25px;
+                margin-bottom: 9px;
+            }
+
+        }
+        */
+    }
+    .application__status{ 
+        border-radius: 25px; 
+        text-align: center; 
+        font-size: 16px; 
+        padding: 5px 15px; 
+        color: white;
+        &__open{
+            background-color: #ff0000;
+        }
+        &__closed{
+            background-color: #808080;
+        }
+        &__work{
+            background-color: #ffff00;
+        }
+        &__done{
+            background-color: #9acd32;
+        }
+        &__info{
+            background-color: #c0c0c0;
+        }
+    }
+
+
+}
+
+
+
