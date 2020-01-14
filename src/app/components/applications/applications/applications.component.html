@@ -15,34 +15,15 @@
                 </thead>
                 <div class="table__line"></div>
                 <tbody>
-                    <tr>
-                       <td class="table__cell-id">12345</td>
-                       <td class="table__cell-description">Не работает кнопка</td>
+                    <tr *ngFor="let task of tasks">
+                       <td class="table__cell-id" [ngStyle]="{'border-left': getPriorityColor(task.priorityId)}">{{task.id}}</td>
+                       <td class="table__cell-description">{{task.name}}</td>
                        <td class="table__cell-status">
-                           <span class="application__status application__status__open">открыта</span>
+                           <span class="application__status" [ngStyle]="{'background-color': task.statusRgb}">{{task.statusName}}</span>
                        </td>
-                       <td class="table__cell-performer">Александр Иванов</td>
+                       <td class="table__cell-performer">{{task.executorName}}</td>
                     </tr>
-                    <tr>
-                        <td class="table__cell-id">45545</td>
-                        <td class="table__cell-description">Принтер летит к черту</td>
-                        <td class="table__cell-status">
-                            <span class="application__status application__status__done">выполнена</span>
-                        </td>
-                        <td class="table__cell-performer">Сергей Петрович</td>
-                    </tr>
-                    <tr>
-                        <td class="table__cell-id">12345</td>
-                        <td class="table__cell-description">Не работает кнопка</td>
-                        <td class="table__cell-status">В работе</td>
-                        <td class="table__cell-performer">Александр Иванов</td>
-                     </tr>
-                     <tr>
-                         <td class="table__cell-id">45545</td>
-                         <td class="table__cell-description">Принтер летит к черту</td>
-                         <td class="table__cell-status">Выполнено</td>
-                         <td class="table__cell-performer">Сергей Петрович</td>
-                     </tr>                    
+                                     
                 </tbody>                                                                                                                                                                                                      
               </table>
 
