@@ -37,14 +37,118 @@
                 <img src="../../../../assets/images/close.png" alt="">
             </div>
         </div>
-        <form class="add-form" (ngSubmit)="addTask()" validate>
-            <span class="add-form__name">Название</span>
-            <textarea class="add-form__input-name" name="name" [(ngModel)]="addingForm.name" required></textarea>
-            <span class="add-form__name">Описание</span>
-            <textarea class="add-form__input-name" name="description" [(ngModel)]="addingForm.description" required></textarea>
-            <div *ngIf="responseStatus.showStatus" class="add-form__status" [ngClass]="responseStatus.result ? 'add-form__status__success' : 'add-form__status__error'">{{responseStatus.message}}</div>
-            <button type="submit" class="add-form__button">Сохранить</button>
+        <form class="form" (ngSubmit)="addTask()" validate>
+            <span class="form__name">Название</span>
+            <textarea class="form__input" name="name" [(ngModel)]="addingForm.name" required></textarea>
+            <span class="form__name">Описание</span>
+            <textarea class="form__input" name="description" [(ngModel)]="addingForm.description" required></textarea>
+            <div *ngIf="responseStatus.showStatus" class="form__status" [ngClass]="responseStatus.result ? 'form__status__success' : 'form__status__error'">{{responseStatus.message}}</div>
+            <button type="submit" class="form__button">Сохранить</button>
          <!--<button class="search-form__button">Найти</button>--->   
         </form>
     </div>
+    <div *ngIf="showEdittingForm" class="applications__form">
+        <div class="applications__header-description">
+            <div class="applications__form-title">N67 304</div>
+            <div class="applications__form-description">апаапапвпваавппав вапавп пвавппв пва вап </div>
+            <div (click)="editTaskButton()" class="applications__form-close">
+                <img src="../../../../assets/images/close.png" alt="">
+            </div>
+        </div>
+        <form class="form" [ngStyle]="{'margin-top': '28px', 'height': '350px'}" (ngSubmit)="addTask()" validate>
+            <span class="form__name">Описание</span>
+            <textarea class="form__input" name="name" [(ngModel)]="addingForm.name" required></textarea>
+            <span class="form__name">Добавление комментариев</span>
+            <textarea class="form__input" name="description" [(ngModel)]="addingForm.description" required></textarea>
+            <div *ngIf="responseStatus.showStatus" class="form__status" [ngClass]="responseStatus.result ? 'form__status__success' : 'form__status__error'">{{responseStatus.message}}</div>
+            <button type="submit" class="form__button">Сохранить</button>
+         <!--<button class="search-form__button">Найти</button>--->   
+        </form>
+        <div class="applications__comments">
+            <div class="applications__comments-wrapper">
+                <div class="applications__comments-photo">photo</div>
+                <div class="applications__comments-user">
+                    <div class="applications__comments-name">Иван Бураков</div>
+                    <div class="applications__comments-date">12 августа, в 10 часов</div>
+                    <div class="applications__comments-description">
+                        текст текст много текста текст текст много текста текст текст много текста 
+                        текст текст много текста текст текст много текста текст текст много текста 
+                        текст текст много текста текст текст много текста текст текст много текста 
+                    </div>
+                </div>
+            </div>
+            <div class="applications__comments-wrapper">
+                <div class="applications__comments-photo">photo</div>
+                <div class="applications__comments-user">
+                    <div class="applications__comments-name">Иван Бураков</div>
+                    <div class="applications__comments-date">12 августа, в 10 часов</div>
+                    <div class="applications__comments-description">
+                        текст текст много текста текст текст много текста текст текст много текста 
+                        текст текст много текста текст текст много текста текст текст много текста 
+                        текст текст много текста текст текст много текста текст текст много текста 
+                    </div>
+                </div>
+            </div>
+            <div class="applications__comments-wrapper">
+                <div class="applications__comments-photo">photo</div>
+                <div class="applications__comments-user">
+                    <div class="applications__comments-name">Иван Бураков</div>
+                    <div class="applications__comments-date">12 августа, в 10 часов</div>
+                    <div class="applications__comments-description">
+                        текст текст много текста текст текст много текста текст текст много текста 
+                        текст текст много текста текст текст много текста текст текст много текста 
+                        текст текст много текста текст текст много текста текст текст много текста 
+                    </div>
+                </div>
+            </div>
+            <div class="applications__comments-wrapper">
+                <div class="applications__comments-photo">photo</div>
+                <div class="applications__comments-user">
+                    <div class="applications__comments-name">Иван Бураков</div>
+                    <div class="applications__comments-date">12 августа, в 10 часов</div>
+                    <div class="applications__comments-description">
+                        текст текст много текста текст текст много текста текст текст много текста 
+                        текст текст много текста текст текст много текста текст текст много текста 
+                        текст текст много текста текст текст много текста текст текст много текста 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="applications__detail">
+            <div class="applications__detail-status">
+                <div class="applications__status-img" [ngStyle]="{'background-color': 'blue'}"></div>
+                <div class="applications__status">В работе</div>
+            </div>
+            <div class="applications__detail-info">
+                <div class="applications__detail-title">Заявитель</div>
+                <div class="applications__detail-description">Александр Вознесский</div>
+            </div>
+            <div class="applications__detail-info">
+                <div class="applications__detail-title">Создана</div>
+                <div class="applications__detail-description">Александр Вознесский</div>
+            </div>
+            <div class="applications__detail-info">
+                <div class="applications__detail-title">Исполнитель</div>
+                <div class="applications__detail-description applications__detail-description__executor">Александр Вознесский</div>
+            </div>
+            <div class="applications__detail-info">
+                <div class="applications__detail-title">Приоритет</div>
+                <div class="applications__detail-description">высокий</div>
+            </div>
+            <div class="applications__detail-info">
+                <div class="applications__detail-title">Срок</div>
+                <div class="applications__detail-description">
+                    <img src="../../../../assets/images/сalendar.png" alt="">
+                    12.11.2018
+                </div>
+            </div>
+            <div class="applications__detail-info">
+                <div class="applications__detail-title">Теги</div>
+                <div class="applications__detail-description applications__detail-description__tags">
+                    <span>Первый </span>
+                    <span>Первый Второй</span>
+                </div>
+            </div>
+        </div>
+    </div>    
 </section>

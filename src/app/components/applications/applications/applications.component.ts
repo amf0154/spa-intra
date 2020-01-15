@@ -58,9 +58,8 @@ export class ApplicationsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(untrustedHtml);
   }
   searchText: string;
-  public createTaskButton = () => {
-    this.showCreatingForm = !this.showCreatingForm
-  };
+  public createTaskButton = () => this.showCreatingForm = !this.showCreatingForm;
+  public editTaskButton = () => this.showEdittingForm = !this.showEdittingForm;
 
   message: string;
   result: boolean;
