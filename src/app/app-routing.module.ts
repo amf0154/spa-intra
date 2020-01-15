@@ -9,6 +9,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { NotfoundComponent } from './components/errors/notfound/notfound.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/applications', pathMatch: 'full' },
   { path: 'applications', component: ApplicationsComponent },
   { path: 'base', component: BaseComponent },
   { path: 'staff', component: StaffComponent },

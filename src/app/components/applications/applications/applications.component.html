@@ -1,8 +1,8 @@
 <section class="applications">
     <div class="applications__list">
-        <div class="applications__button">
+        <button (click)="createTaskButton()" class="applications__button">
             <p class="applications__text">Создать заявку</p>
-        </div>
+        </button>
         <div class="applications__container">
             <table class="table">
                 <thead>
@@ -30,7 +30,21 @@
               
         </div>
     </div>
-    <div *ngIf="false" class="applications__form">
-        <div class="applications__header-description"></div>
+    <div *ngIf="showCreatingForm" class="applications__form">
+        <div class="applications__header-description">
+            <div class="applications__form-title">Новая заявка</div>
+            <div (click)="createTaskButton()" class="applications__form-close">
+                <img src="../../../../assets/images/close.png" alt="">
+            </div>
+        </div>
+        <form class="add-form" (ngSubmit)="addTask()" validate>
+            <span class="add-form__name">Название</span>
+            <textarea class="add-form__input-name" name="name" [(ngModel)]="addingForm.name" required></textarea>
+            <span class="add-form__name">Описание</span>
+            <textarea class="add-form__input-name" name="description" [(ngModel)]="addingForm.description" required></textarea>
+            <div *ngIf="responseStatus.showStatus" class="add-form__status" [ngClass]="responseStatus.result ? 'add-form__status__success' : 'add-form__status__error'">{{responseStatus.message}}</div>
+            <button type="submit" class="add-form__button">Сохранить</button>
+         <!--<button class="search-form__button">Найти</button>--->   
+        </form>
     </div>
 </section>

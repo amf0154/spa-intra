@@ -12,6 +12,7 @@ import { ClientsComponent } from './components/clients/clients.component';
 import { AssetsComponent } from './components/assets/assets.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotfoundComponent } from './components/errors/notfound/notfound.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NotfoundComponent } from './components/errors/notfound/notfound.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

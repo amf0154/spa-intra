@@ -13,3 +13,14 @@ body {
     font-family: "Myriad";
     src: url('./assets/styles/MyriadPro.otf');
 }
+
+textarea{
+    &-active , &:hover, &:focus{
+        outline: none;
+    }
+}
+button{
+    &:focus{
+        outline: none;
+    }
+}

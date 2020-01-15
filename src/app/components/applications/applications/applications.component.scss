@@ -14,6 +14,9 @@ section.applications{
             left: 260px;
             top: 23px;
             @include action__button(181px, 41px);
+            &:hover{
+                background-color: #1A4876;
+            }
         }
         .applications__container{
             width: 1505px;
@@ -24,20 +27,81 @@ section.applications{
         }
     }
     .applications__form{
-        position: absolute;
-        right: 0px;
+        position: fixed;
+        right: calc((100% - 1601px)/2); 
         z-index: 2;
-        width: 976px;
+        width: 972px;
         height: inherit;
+    //    box-shadow: -1px 0px 1px 0px rgba(0,0,0,0.5);
+        border-left: 1px #E2E7EA solid;
         background-color: #ECF3F7;
         .applications__header-description{
             height: 61px;
             width: inherit;
             background-color: #1A4876;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            .applications__form-title{
+                margin-left: 38px;
+                color: white;
+                font-size: 16pt;
+                font-family: "Myriad";
+            }
+            .applications__form-close{
+                margin-right: 30px;
+                cursor: pointer;
+            }
         }
     }
-    
+
+    .add-form{
+        margin: 55px 38px;
+        display: flex;
+        flex-direction: column;
+        width: 625px;
+        position: relative;
+        height: 400px;
+        &__name{
+            font-family: "Myriad"; 
+            font-weight: 100;
+            font-size: 14pt;
+            color: rgba(159, 158, 167, 255);
+            margin-bottom: 14px;
+        }
+        &__input-name{
+            height: 84px;
+            border: none;
+            resize: none;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            &:last-child{
+                height: 133px;
+            }
+        }
+        &__status{
+            font-size: large;
+            font-family: "Myriad";
+            &__success{
+                color: blue;
+            }
+            &__error{
+                color: red;
+            }
+        }
+        &__button{
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            @include action__button(150px, 36px);
+        }
+    }
+    overflow: scroll;
     .table{
+        max-height: 1116px;
+        height: 100%;
+        width: 1505px;
         th{
             border-right: 1px #E2E7EA solid;
             border-bottom: 1px #E2E7EA solid;
@@ -67,9 +131,6 @@ section.applications{
                 border-right: none;
 
             }   
-        }
-        .table__line{
-           // margin-top: 11px;
         }
         td{
             height: 51px;
@@ -130,21 +191,6 @@ section.applications{
         font-size: 16px; 
         padding: 5px 15px; 
         color: white;
-        &__open{
-            background-color: #ff0000;
-        }
-        &__closed{
-            background-color: #808080;
-        }
-        &__work{
-            background-color: #ffff00;
-        }
-        &__done{
-            background-color: #9acd32;
-        }
-        &__info{
-            background-color: #c0c0c0;
-        }
     }
 
 
