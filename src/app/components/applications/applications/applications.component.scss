@@ -59,6 +59,11 @@ section.applications{
                 margin-right: 30px;
                 cursor: pointer;
                 margin-left: auto;
+                img{
+                    height: 16px;
+                    width: 16px;
+                    margin-left: 10px;
+                }
             }
         }
     }
@@ -86,6 +91,10 @@ section.applications{
                 text-align: left;
                 font-family: "Myriad";
                 font-weight: lighter;
+            }
+            img{
+                cursor: pointer;
+                margin-left: auto;
             }
         }
         .applications__detail-info{
@@ -143,6 +152,13 @@ section.applications{
                 height: 133px;
             }
         }
+        &__description{
+            height: 84px;
+            background-color: #E3E9F4;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-bottom: 25px;
+        }
         &__status{
             font-size: large;
             font-family: "Myriad";
@@ -161,7 +177,7 @@ section.applications{
         }
     }
     .applications__comments{
-        height: 600px;
+        height: 450px;
         width: 735px;
         overflow: scroll;
     }
@@ -193,6 +209,8 @@ section.applications{
                 font-size: 12pt;
             }
             .applications__comments-description{
+                max-width: 550px;
+                width: 100%;
                 margin-top: 17px;
                 background-color: #E3E9F4;
                 border-radius: 14px;
@@ -241,6 +259,7 @@ section.applications{
             font-size: 16pt;
             font-family: "Myriad";
             font-weight: lighter;
+            cursor: pointer;
             color: rgba(82, 84, 96, 255);
             border-bottom: 1px #E2E7EA solid;
             &.table__cell-id{

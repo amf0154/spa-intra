@@ -4,6 +4,9 @@ export const environment = {
   production: false,
   GetTasks: `${API_URL}/odata/tasks?tenantguid=${TENANTGUID}`,
   Priorities: APIENDPOINT + 'Priorities',
-  AddTask: APIENDPOINT + 'Tasks'
+  Task: APIENDPOINT + 'Tasks',
+  TaskById: APIENDPOINT + 'Tasks/',
+  Statuses: APIENDPOINT + 'Statuses',
+  Users: APIENDPOINT + 'Users'
 //  Token_Endpoint: globalEndPoint.AuthEndPoint + '/connect/token',
 };

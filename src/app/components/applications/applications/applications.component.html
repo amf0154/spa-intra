@@ -16,12 +16,12 @@
                 <div class="table__line"></div>
                 <tbody>
                     <tr *ngFor="let task of tasks">
-                       <td class="table__cell-id" [ngStyle]="{'border-left': getPriorityColor(task.priorityId)}">{{task.id}}</td>
-                       <td class="table__cell-description">{{task.name}}</td>
-                       <td class="table__cell-status">
+                       <td (click)="showTask(task.id)" class="table__cell-id" [ngStyle]="{'border-left': getPriorityColor(task.priorityId)}">{{task.id}}</td>
+                       <td (click)="showTask(task.id)" class="table__cell-description">{{task.name}}</td>
+                       <td (click)="showTask(task.id)" class="table__cell-status">
                            <span class="application__status" [ngStyle]="{'background-color': task.statusRgb}">{{task.statusName}}</span>
                        </td>
-                       <td class="table__cell-performer">{{task.executorName}}</td>
+                       <td (click)="showTask(task.id)" class="table__cell-performer">{{task.executorName}}</td>
                     </tr>
                                      
                 </tbody>                                                                                                                                                                                                      
@@ -49,104 +49,76 @@
     </div>
     <div *ngIf="showEdittingForm" class="applications__form">
         <div class="applications__header-description">
-            <div class="applications__form-title">N67 304</div>
-            <div class="applications__form-description">апаапапвпваавппав вапавп пвавппв пва вап </div>
+            <div class="applications__form-title">N{{taskById.taskTypeId}}</div>
+            <div class="applications__form-description">{{taskById.taskTypeName}}</div>
             <div (click)="editTaskButton()" class="applications__form-close">
                 <img src="../../../../assets/images/close.png" alt="">
             </div>
         </div>
-        <form class="form" [ngStyle]="{'margin-top': '28px', 'height': '350px'}" (ngSubmit)="addTask()" validate>
+        <form class="form" [ngStyle]="{'margin-top': '28px', 'height': '400px'}" (ngSubmit)="addComment()" validate>
             <span class="form__name">Описание</span>
-            <textarea class="form__input" name="name" [(ngModel)]="addingForm.name" required></textarea>
+            <div class="form__description" name="name" [innerHTML]="sanitizeServersideHtml(taskById.description)"></div>
             <span class="form__name">Добавление комментариев</span>
-            <textarea class="form__input" name="description" [(ngModel)]="addingForm.description" required></textarea>
+            <textarea class="form__input" name="description" [(ngModel)]="taskById.comment" required></textarea>
             <div *ngIf="responseStatus.showStatus" class="form__status" [ngClass]="responseStatus.result ? 'form__status__success' : 'form__status__error'">{{responseStatus.message}}</div>
-            <button type="submit" class="form__button">Сохранить</button>
-         <!--<button class="search-form__button">Найти</button>--->   
+            <button type="submit" class="form__button">Сохранить</button>  
         </form>
-        <div class="applications__comments">
-            <div class="applications__comments-wrapper">
-                <div class="applications__comments-photo">photo</div>
+        <div class="applications__comments"> 
+            <div class="applications__comments-wrapper" *ngFor="let comment of commentsFilter(taskById.lifetimeItems)">
+                <div class="applications__comments-photo"></div>
                 <div class="applications__comments-user">
-                    <div class="applications__comments-name">Иван Бураков</div>
-                    <div class="applications__comments-date">12 августа, в 10 часов</div>
-                    <div class="applications__comments-description">
-                        текст текст много текста текст текст много текста текст текст много текста 
-                        текст текст много текста текст текст много текста текст текст много текста 
-                        текст текст много текста текст текст много текста текст текст много текста 
-                    </div>
-                </div>
-            </div>
-            <div class="applications__comments-wrapper">
-                <div class="applications__comments-photo">photo</div>
-                <div class="applications__comments-user">
-                    <div class="applications__comments-name">Иван Бураков</div>
-                    <div class="applications__comments-date">12 августа, в 10 часов</div>
-                    <div class="applications__comments-description">
-                        текст текст много текста текст текст много текста текст текст много текста 
-                        текст текст много текста текст текст много текста текст текст много текста 
-                        текст текст много текста текст текст много текста текст текст много текста 
-                    </div>
-                </div>
-            </div>
-            <div class="applications__comments-wrapper">
-                <div class="applications__comments-photo">photo</div>
-                <div class="applications__comments-user">
-                    <div class="applications__comments-name">Иван Бураков</div>
-                    <div class="applications__comments-date">12 августа, в 10 часов</div>
-                    <div class="applications__comments-description">
-                        текст текст много текста текст текст много текста текст текст много текста 
-                        текст текст много текста текст текст много текста текст текст много текста 
-                        текст текст много текста текст текст много текста текст текст много текста 
-                    </div>
-                </div>
-            </div>
-            <div class="applications__comments-wrapper">
-                <div class="applications__comments-photo">photo</div>
-                <div class="applications__comments-user">
-                    <div class="applications__comments-name">Иван Бураков</div>
-                    <div class="applications__comments-date">12 августа, в 10 часов</div>
-                    <div class="applications__comments-description">
-                        текст текст много текста текст текст много текста текст текст много текста 
-                        текст текст много текста текст текст много текста текст текст много текста 
-                        текст текст много текста текст текст много текста текст текст много текста 
+                    <div class="applications__comments-name">{{comment.userName}}</div>
+                    <div class="applications__comments-date">{{comment.createdAt | date: 'MMM d, y, h:mm:ss a' }}</div>
+                    <div class="applications__comments-description" [innerHTML]="sanitizeServersideHtml(comment.comment)">
                     </div>
                 </div>
             </div>
         </div>
         <div class="applications__detail">
             <div class="applications__detail-status">
-                <div class="applications__status-img" [ngStyle]="{'background-color': 'blue'}"></div>
-                <div class="applications__status">В работе</div>
+                <div *ngIf="!editMode" class="applications__status-img" [ngStyle]="{'background-color': taskById.statusRgb}"></div>
+                <div *ngIf="!editMode" class="applications__status">{{taskById.statusName}}</div>
+                <div *ngIf="editMode" class="applications_status">
+                    <select [(ngModel)]="taskById.statusId">
+                        <option *ngFor="let status of statuses" [value]="status.id">{{status.name}}</option>
+                      </select>
+                </div>
+                <img (click)="editTask()" height="20px" width="20px" *ngIf="!editMode" src="../../../../assets/images/edit1.png" alt="">
+                <img (click)="saveTask()" height="20px" width="20px" *ngIf="editMode" src="../../../../assets/images/save.png" alt="">
             </div>
             <div class="applications__detail-info">
                 <div class="applications__detail-title">Заявитель</div>
-                <div class="applications__detail-description">Александр Вознесский</div>
+                <div class="applications__detail-description">{{taskById.initiatorName}}</div>
             </div>
             <div class="applications__detail-info">
                 <div class="applications__detail-title">Создана</div>
-                <div class="applications__detail-description">Александр Вознесский</div>
+                <div class="applications__detail-description">{{taskById.createdAt | date: 'dd.MM.yyyy'}}</div>
             </div>
             <div class="applications__detail-info">
                 <div class="applications__detail-title">Исполнитель</div>
-                <div class="applications__detail-description applications__detail-description__executor">Александр Вознесский</div>
+                <div *ngIf="!editMode" class="applications__detail-description applications__detail-description__executor">{{taskById.executorName}}</div>
+                <div *ngIf="editMode" class="applications__detail-description">
+                    <select [(ngModel)]="taskById.executorId">
+                        <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+                      </select>
+                </div>
             </div>
             <div class="applications__detail-info">
                 <div class="applications__detail-title">Приоритет</div>
-                <div class="applications__detail-description">высокий</div>
+                <div class="applications__detail-description">{{taskById.priorityName}}</div>
             </div>
             <div class="applications__detail-info">
                 <div class="applications__detail-title">Срок</div>
                 <div class="applications__detail-description">
                     <img src="../../../../assets/images/сalendar.png" alt="">
-                    12.11.2018
+                    {{taskById.resolutionDatePlan | date: 'dd.MM.yyyy'}}
                 </div>
             </div>
             <div class="applications__detail-info">
                 <div class="applications__detail-title">Теги</div>
                 <div class="applications__detail-description applications__detail-description__tags">
-                    <span>Первый </span>
-                    <span>Первый Второй</span>
+                    <span *ngFor="let tag of taskById.tags">{{tag.name}}</span>
+                    
                 </div>
             </div>
         </div>
