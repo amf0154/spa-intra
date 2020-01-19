@@ -74,10 +74,21 @@ section.applications{
         position: absolute;
         top: 61px;
         right: 0px;
+        img.applications__detail-buttons{
+            float: right;
+            margin: 7px 20px;
+            height: 20px; 
+            width: 20px;
+        }
         .applications__detail-status{
             margin: 28px 26px;
             display: flex;
             flex-direction: row;
+            select{
+                width: 155px;
+                height: 25px;
+                border: 1px solid #1974D2;
+            }
             .applications__status-img{
                 margin: 4px 11px 0px 0px;
                 height: 12px;
@@ -124,6 +135,11 @@ section.applications{
                         color: #9DA1AA;
                         background-color: white;
                     }
+                }
+                select{
+                    width: 120px;
+                    height: 25px;
+                    border: 1px solid #1974D2;
                 }
             }
         }

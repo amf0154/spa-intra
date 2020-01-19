@@ -41,6 +41,7 @@ export class ApplicationsComponent implements OnInit {
 
   ngOnInit() {
     this.getPriorities();
+    this.getStatuses();
   }
 
   private getPriorities = () => {
@@ -91,7 +92,6 @@ export class ApplicationsComponent implements OnInit {
     this.showCreatingForm ? this.showCreatingForm = !this.showCreatingForm : '';
     this.apiService.get(environment.TaskById + id).subscribe((task: Task)=>{
       this.taskById = task;
-      this.getStatuses();
       this.showEdittingForm = true;
     }, error=>alert(error.message));
   }
@@ -116,7 +116,8 @@ export class ApplicationsComponent implements OnInit {
       this.setResponseStatus.call(this.responseStatus,this.responseMessage,true,true);
       this.clearStatusMessage();
       this.showTask(this.taskById.id);
-    }, error=>alert(error.message));
+      this.getTasks();
+    }, error => alert(error.message));
   }
 
   private getStatuses = () => {
@@ -132,9 +133,17 @@ export class ApplicationsComponent implements OnInit {
     }, error => alert(error));
   }
 
-  public commentsFilter = comments => comments.filter(comment=> comment.comment);
+  public commentsFilter = (comments) => {
+    if(comments)
+      return comments.filter(comment=> comment.comment)
+  };
 
   sanitizeServersideHtml(untrustedHtml: string) {
     return this.sanitizer.bypassSecurityTrustHtml(untrustedHtml);
   }
+
+  public spaceInId = (id) => {
+    const number = id.toString();
+    return number.substring(0,2) + ' ' + number.substring(2, number.length);
+    }
 }

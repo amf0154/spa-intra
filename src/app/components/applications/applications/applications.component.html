@@ -16,7 +16,7 @@
                 <div class="table__line"></div>
                 <tbody>
                     <tr *ngFor="let task of tasks">
-                       <td (click)="showTask(task.id)" class="table__cell-id" [ngStyle]="{'border-left': getPriorityColor(task.priorityId)}">{{task.id}}</td>
+                       <td (click)="showTask(task.id)" class="table__cell-id" [ngStyle]="{'border-left': getPriorityColor(task.priorityId)}">{{spaceInId(task.id)}}</td>
                        <td (click)="showTask(task.id)" class="table__cell-description">{{task.name}}</td>
                        <td (click)="showTask(task.id)" class="table__cell-status">
                            <span class="application__status" [ngStyle]="{'background-color': task.statusRgb}">{{task.statusName}}</span>
@@ -49,7 +49,7 @@
     </div>
     <div *ngIf="showEdittingForm" class="applications__form">
         <div class="applications__header-description">
-            <div class="applications__form-title">N{{taskById.taskTypeId}}</div>
+            <div class="applications__form-title">№ {{spaceInId(taskById.id)}}</div>
             <div class="applications__form-description">{{taskById.taskTypeName}}</div>
             <div (click)="editTaskButton()" class="applications__form-close">
                 <img src="../../../../assets/images/close.png" alt="">
@@ -75,6 +75,8 @@
             </div>
         </div>
         <div class="applications__detail">
+            <img (click)="editTask()" class="applications__detail-buttons" *ngIf="!editMode" src="../../../../assets/images/edit1.png" alt="">
+            <img (click)="saveTask()" class="applications__detail-buttons" *ngIf="editMode" src="../../../../assets/images/save.png" alt="">
             <div class="applications__detail-status">
                 <div *ngIf="!editMode" class="applications__status-img" [ngStyle]="{'background-color': taskById.statusRgb}"></div>
                 <div *ngIf="!editMode" class="applications__status">{{taskById.statusName}}</div>
@@ -83,8 +85,6 @@
                         <option *ngFor="let status of statuses" [value]="status.id">{{status.name}}</option>
                       </select>
                 </div>
-                <img (click)="editTask()" height="20px" width="20px" *ngIf="!editMode" src="../../../../assets/images/edit1.png" alt="">
-                <img (click)="saveTask()" height="20px" width="20px" *ngIf="editMode" src="../../../../assets/images/save.png" alt="">
             </div>
             <div class="applications__detail-info">
                 <div class="applications__detail-title">Заявитель</div>
@@ -107,7 +107,7 @@
                 <div class="applications__detail-title">Приоритет</div>
                 <div class="applications__detail-description">{{taskById.priorityName}}</div>
             </div>
-            <div class="applications__detail-info">
+            <div *ngIf="taskById.resolutionDatePlan" class="applications__detail-info">
                 <div class="applications__detail-title">Срок</div>
                 <div class="applications__detail-description">
                     <img src="../../../../assets/images/сalendar.png" alt="">
