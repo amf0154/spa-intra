@@ -1,6 +1,8 @@
+@import '../../../../assets/scss/constants.scss';
 .header{
     height: 66px;
-    width: 1505px;
+    min-width: $min-width-container;
+    width: 100%; 
     background-color: #D1E0ED;
     .header__search-params{
         margin: 14px 15px;

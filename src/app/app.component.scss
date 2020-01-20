@@ -1,4 +1,8 @@
 .content{
     display: flex;
     flex-direction: row;
+    .content__navigation{
+        width: calc(100% - 96px); 
+        overflow: hidden;
+    }
 }

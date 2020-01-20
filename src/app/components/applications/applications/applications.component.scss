@@ -1,13 +1,15 @@
 @import '../../../../assets/scss/mixins.scss';
-
+@import '../../../../assets/scss/constants.scss';
 section.applications{
     display: flex;
     flex-direction: row;
     height: 1116px;
+    min-width: $min-width-container;
+    width: calc(100% - 96px);  
     position: absolute;
     .applications__list{
         z-index: 1;
-        width: 1505px;
+        width: 100%;
         height: inherit;
         .applications__button{
             position: relative;
@@ -19,7 +21,7 @@ section.applications{
             }
         }
         .applications__container{
-            width: 1505px;
+            width: inherit;
             height: inherit;
             overflow: scroll;
             position: relative;
@@ -28,11 +30,10 @@ section.applications{
     }
     .applications__form{
         position: fixed;
-        right: calc((100% - 1601px)/2); 
+        right: 0px; 
         z-index: 2;
         width: 974px;
         height: inherit;
-    //    box-shadow: -1px 0px 1px 0px rgba(0,0,0,0.5);
         border-left: 1px #E2E7EA solid;
         background-color: #ECF3F7;
         .applications__header-description{
@@ -239,7 +240,7 @@ section.applications{
     .table{
         max-height: 1116px;
         height: 100%;
-        width: 1505px;
+        width: 100%;
         th{
             border-right: 1px #E2E7EA solid;
             border-bottom: 1px #E2E7EA solid;
